@@ -39,7 +39,6 @@ func Bot(c *gin.Context) {
 
 		switch data.PostType {
 		case "message":
-			log.Print("收到消息")
 			Message(data, ws)
 			//消息
 

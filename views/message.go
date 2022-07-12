@@ -1,7 +1,6 @@
 package views
 
 import (
-	"bot/models"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
@@ -26,49 +25,26 @@ func Message(data Data, ws *websocket.Conn) {
 		ws.WriteJSON(gin.H{
 			"action": "send_msg",
 			"params": gin.H{
-				"message_type": "private",
-				"user_id":      "756334744",
+				"user_id": "756334744",
 				"message": gin.H{
-					"type": "shake",
+					"type": "face",
+					"data": gin.H{
+						"id": "13",
+					},
 				},
 			},
 		})
 
 	case "group":
 		if data.Message == "签到" {
-			models.InitMysqlDB()
-			var db = models.DB
-			var user models.User
-			user.UserId = data.UserId
-			db.Where("user_id = ?", data.UserId).First(&user)
-			println(user.UserId)
-			if user.Id == 0 {
-				user.UserId = data.UserId
-				user.Integral = 100
-				user.Permission = 0
-				db.Create(&user)
-				return
-			}
-			if user.Integral == 0 {
-				ws.WriteJSON(gin.H{
-					"action": "send_msg",
-					"params": gin.H{
-						"message_type": "group",
-						"group_id":     data.GroupId,
-						"message":      fmt.Sprintf("%s(%d) 金币不足 请别人送金币", data.Sender.Card, data.Sender.UserId),
-					},
-				})
-				return
-			}
+			println("签到")
 			ws.WriteJSON(gin.H{
-				"action": "send_msg",
+				"action": "send_group_msg",
 				"params": gin.H{
-					"message_type": "group",
-					"group_id":     data.GroupId,
-					"message":      "签到成功",
+					"group_id": data.GroupId,
+					"message":  fmt.Sprintf("[CQ:at,qq=%d] 签到成功", data.Sender.UserId),
 				},
 			})
-			return
 		}
 	}
 

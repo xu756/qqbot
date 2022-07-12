@@ -10,7 +10,7 @@ func main() {
 	//websocket 路由
 	r.GET("/qq", views.Bot)
 	//监听端口默认为8080
-	err := r.Run(":8000")
+	err := r.Run(":7567")
 	if err != nil {
 		return
 	}
