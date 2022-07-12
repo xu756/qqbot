@@ -2,16 +2,15 @@ package models
 
 import (
 	"fmt"
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
 func InitMysqlDB() {
-	//dsn := "xu:xjx756756@tcp(121.5.132.57:5700)/ginvue2?charset=utf8&parseTime=True&loc=Local"
-	//db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	db, err := gorm.Open(sqlite.Open("data.db"), &gorm.Config{})
+	dsn := "xu:xjx756756@tcp(0.0.0.0:4700)/bot?charset=utf8&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		fmt.Println("数据库连接失败")
 	}

@@ -9,7 +9,6 @@ func main() {
 	r := gin.Default()
 	//websocket 路由
 	r.GET("/qq", views.Bot)
-	//监听端口默认为8080
 	err := r.Run(":7567")
 	if err != nil {
 		return
