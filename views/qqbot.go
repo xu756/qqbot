@@ -1,6 +1,7 @@
 package views
 
 import (
+	"bot/models"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"log"
@@ -29,6 +30,7 @@ type Data struct {
 
 func Bot(c *gin.Context) {
 	ws, _ := upGrader.Upgrade(c.Writer, c.Request, nil)
+	models.InitMysqlDB()
 	for {
 		//读取json
 		var data Data

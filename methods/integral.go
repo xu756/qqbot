@@ -15,6 +15,5 @@ func Read(data views.Data) interface{} {
 		user.Permission = 0
 		db.Create(&user)
 	}
-
-	return nil
+	return user
 }
