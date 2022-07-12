@@ -1,7 +1,6 @@
 package views
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 )
@@ -37,14 +36,7 @@ func Message(data Data, ws *websocket.Conn) {
 
 	case "group":
 		if data.Message == "签到" {
-			println("签到")
-			ws.WriteJSON(gin.H{
-				"action": "send_group_msg",
-				"params": gin.H{
-					"group_id": data.GroupId,
-					"message":  fmt.Sprintf("[CQ:at,qq=%d] 签到成功", data.Sender.UserId),
-				},
-			})
+			SignIn(data, ws)
 		}
 	}
 
