@@ -44,7 +44,6 @@ func SignIn(data Data, ws *websocket.Conn) {
 		defer db.Save(&user)
 		defer db.Create(&userIntegral)
 	} else {
-
 		res["message"] = fmt.Sprintf("[CQ:at,qq=%d]\n不要重复签到", user.UserId)
 		ws.WriteJSON(gin.H{
 			"action": "send_group_msg",
