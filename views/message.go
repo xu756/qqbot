@@ -35,7 +35,7 @@ func Message(data Data, ws *websocket.Conn) {
 		})
 
 	case "group":
-		if data.Message == "签到" {
+		if data.Message == "[CQ:at,qq=977163054] 签到" {
 			SignIn(data, ws)
 		}
 	}

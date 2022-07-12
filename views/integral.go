@@ -24,9 +24,9 @@ func SignIn(data Data, ws *websocket.Conn) {
 	db.Save(&user)
 	res := make(map[string]interface{})
 	if num == 100 {
-		res["message"] = fmt.Sprintf("恭喜中大奖100金币\n目前金币%d枚", user.Integral)
+		res["message"] = fmt.Sprintf("[CQ:at,qq=%d]\n签到成功\n恭喜中大奖100金币\n目前金币%d枚", user.UserId, user.Integral)
 	}
-	res["message"] = fmt.Sprintf("签到成功\n目前金币%d枚", user.Integral)
+	res["message"] = fmt.Sprintf("[CQ:at,qq=%d]\n签到成功\n获得%d金币\n目前金币%d枚", user.UserId, num, user.Integral)
 	res["group_id"] = data.GroupId
 	ws.WriteJSON(gin.H{
 		"action": "send_group_msg",
