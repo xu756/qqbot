@@ -38,8 +38,8 @@ func Message(data Data, ws *websocket.Conn) {
 		switch data.Message {
 		case "签到":
 			SignIn(data, ws)
-		case "积分":
-
+		case "抽金币":
+			DrawGold(data, ws)
 		}
 
 	}

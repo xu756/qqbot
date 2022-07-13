@@ -3,9 +3,9 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="43aba7ad-25d1-444e-b5f3-39010d560b85" name="小服务器">
-        <fileTransfer rootFolder="/home/xu756" accessType="SFTP" host="192.168.0.104" port="22" sshConfigId="4498fcec-c200-4844-ad99-e0f0515b9e90" sshConfig="xu756@192.168.0.104:22 agent" authAgent="true">
+        <fileTransfer rootFolder="/home/xu756" accessType="SFTP" host="192.168.0.104" port="22" sshConfigId="52179a63-34d9-43f0-8770-6c794bb90846" sshConfig="xu756@192.168.0.104:22 password">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
