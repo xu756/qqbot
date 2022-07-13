@@ -40,6 +40,8 @@ func Message(data Data, ws *websocket.Conn) {
 			SignIn(data, ws)
 		case "抽金币":
 			DrawGold(data, ws)
+		case "个人信息":
+			GetUserInfo(data, ws)
 		}
 
 	}

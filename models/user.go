@@ -7,6 +7,8 @@ type User struct {
 	UserId     int64 //发送事件的用户的 QQ 号
 	Integral   int64 //积分
 	Permission int64 //权限
+	Lucky      int64 //幸运值
+	Sin        int64 //罪恶值
 }
 type UserIntegral struct {
 	Id          int64 `primary_key:"true"`
