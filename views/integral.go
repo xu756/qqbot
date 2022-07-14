@@ -78,12 +78,12 @@ func DrawGold(data Data, ws *websocket.Conn) {
 	}
 	rand.Seed(time.Now().UnixNano())
 	var num1 = rand.Int63n(20) + 2 //生成签到金币 要花费的
-	var num2 = rand.Int63n(30)     //生成签到金币 获得的
+	var num2 = rand.Int63n(40)     //生成签到金币 获得的
 	user.Integral = user.Integral - num1 + num2
 	defer db.Save(&user)
 	//中大奖
-	if num2 == 30 {
-		res["message"] = fmt.Sprintf("[CQ:at,qq=%d]\n恭喜中大奖30金币\n目前金币%d枚", user.UserId, user.Integral)
+	if num2 == 40 {
+		res["message"] = fmt.Sprintf("[CQ:at,qq=%d]\n恭喜中大奖40金币\n目前金币%d枚", user.UserId, user.Integral)
 		ws.WriteJSON(gin.H{
 			"action": "send_group_msg",
 			"params": res,
